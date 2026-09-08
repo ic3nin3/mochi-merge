@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Mochi Merge</string>
+    <string name="title_activity_main">Mochi Merge</string>
+    <string name="package_name">com.ic3nin3.mochimerge</string>
+    <string name="custom_url_scheme">com.ic3nin3.mochimerge</string>
+</resources>
