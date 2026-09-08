@@ -1,0 +1,360 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.625rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+/* ---------------------------------------------------------------------------
+   Mochi Merge global styles
+--------------------------------------------------------------------------- */
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+body {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  touch-action: none;
+  background: #ffeef2;
+  font-family: 'Baloo 2', 'Comic Sans MS', system-ui, -apple-system, sans-serif;
+}
+
+canvas {
+  display: block;
+}
+
+/* Animated mochi logo (start screen) */
+@keyframes mochi-bounce {
+  0%,
+  100% {
+    transform: translateY(0) scale(1, 1);
+  }
+  30% {
+    transform: translateY(-18px) scale(0.96, 1.05);
+  }
+  55% {
+    transform: translateY(0) scale(1.08, 0.9);
+  }
+  70% {
+    transform: translateY(-6px) scale(0.98, 1.02);
+  }
+  85% {
+    transform: translateY(0) scale(1.03, 0.96);
+  }
+}
+
+.mochi-logo {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 30%, #ffd3de 0%, #ff9eb5 62%, #e87e99 100%);
+  box-shadow:
+    inset -6px -10px 18px rgba(216, 110, 140, 0.35),
+    0 14px 28px rgba(232, 126, 153, 0.35);
+  animation: mochi-bounce 1.6s ease-in-out infinite;
+}
+
+.mochi-logo::after {
+  content: '';
+  position: absolute;
+  top: 18%;
+  left: 22%;
+  width: 34%;
+  height: 20%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.65);
+  transform: rotate(-24deg);
+}
+
+.mochi-logo-face {
+  position: absolute;
+  inset: 0;
+}
+
+.mochi-logo-eye {
+  position: absolute;
+  top: 42%;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #5b3a45;
+}
+
+.mochi-logo-eye.left {
+  left: 30%;
+}
+
+.mochi-logo-eye.right {
+  right: 30%;
+}
+
+.mochi-logo-blush {
+  position: absolute;
+  top: 56%;
+  width: 16px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 120, 150, 0.55);
+}
+
+.mochi-logo-blush.left {
+  left: 18%;
+}
+
+.mochi-logo-blush.right {
+  right: 18%;
+}
+
+.mochi-logo-mouth {
+  position: absolute;
+  top: 54%;
+  left: 50%;
+  width: 18px;
+  height: 12px;
+  transform: translateX(-50%);
+  border: 3px solid #5b3a45;
+  border-top: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-radius: 0 0 18px 18px;
+}
+
+/* ---------------------------------------------------------------------------
+   Café modes animations
+--------------------------------------------------------------------------- */
+
+/* Café sub-menu entrance */
+@keyframes cafe-pop {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cafe-enter {
+  animation: cafe-pop 0.35s ease-out both;
+}
+
+/* Conveyor belt stripes */
+.conveyor-stripes {
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(233, 160, 185, 0.45) 0 14px,
+    rgba(255, 255, 255, 0.65) 14px 28px
+  );
+  animation: conveyor-scroll 1.2s linear infinite;
+}
+
+@keyframes conveyor-scroll {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -28px;
+  }
+}
+
+/* Customer served: happy hop off the belt */
+@keyframes customer-hop {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  40% {
+    transform: translateY(-26px) scale(1.12);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-40px) scale(0.9);
+    opacity: 0;
+  }
+}
+
+.customer-hop {
+  animation: customer-hop 0.65s ease-in both;
+}
+
+/* Customer storm-off: angry shake + fade */
+@keyframes customer-storm {
+  0% {
+    transform: translateX(0) rotate(0);
+    opacity: 1;
+  }
+  25% {
+    transform: translateX(-6px) rotate(-8deg);
+  }
+  50% {
+    transform: translateX(5px) rotate(7deg);
+  }
+  75% {
+    transform: translateX(-4px) rotate(-5deg);
+  }
+  100% {
+    transform: translateX(-30px) rotate(0);
+    opacity: 0;
+  }
+}
+
+.customer-storm {
+  animation: customer-storm 0.65s ease-in both;
+}
+
+/* ---------------------------------------------------------------------------
+   Café polish: hearts, impatience warning
+--------------------------------------------------------------------------- */
+
+/* Lost heart: shake then settle grayed (re-triggered via key change) */
+@keyframes heart-break {
+  0% {
+    transform: scale(1.4) rotate(0);
+    filter: grayscale(0);
+  }
+  25% {
+    transform: scale(1.1) rotate(-14deg);
+  }
+  50% {
+    transform: scale(1.15) rotate(12deg);
+  }
+  75% {
+    transform: scale(1.05) rotate(-8deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+    filter: grayscale(1);
+  }
+}
+
+.heart-lost {
+  display: inline-block;
+  animation: heart-break 0.6s ease-out both;
+}
+
+.heart-alive {
+  display: inline-block;
+}
+
+/* Wobbling ❗ above impatient customers */
+@keyframes impatient-wobble {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+  25% {
+    transform: translateX(-50%) translateY(-3px) scale(1.15);
+  }
+  50% {
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+  75% {
+    transform: translateX(-50%) translateY(-2px) scale(1.1);
+  }
+}
+
+.impatient-warn {
+  animation: impatient-wobble 0.5s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------------------------
+   Premium checkout confetti
+--------------------------------------------------------------------------- */
+
+@keyframes premium-confetti-fall {
+  0% {
+    transform: translateY(0) rotate(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(340px) rotate(220deg);
+    opacity: 0;
+  }
+}
+
+.premium-confetti {
+  animation: premium-confetti-fall 1.6s ease-in both;
+}
